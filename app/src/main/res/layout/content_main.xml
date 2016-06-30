@@ -8,77 +8,91 @@
     tools:context="com.why.mediasdp.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
+    <ScrollView
         android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+
         app:layout_constraintLeft_toLeftOf="@+id/content_main"
         app:layout_constraintTop_toTopOf="@+id/content_main"
-        android:layout_marginTop="60dp"
+
         app:layout_constraintRight_toRightOf="@+id/content_main"
         app:layout_constraintBottom_toBottomOf="@+id/content_main"
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintVertical_bias="0.13">
 
-        <Button
-            android:text="Web"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonWeb" />
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="@+id/content_main"
+            app:layout_constraintTop_toTopOf="@+id/content_main"
 
-        <Button
-            android:text="Telp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonTelp" />
+            app:layout_constraintRight_toRightOf="@+id/content_main"
+            app:layout_constraintBottom_toBottomOf="@+id/content_main"
+            >
 
-        <Button
-            android:text="Kamera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonKamera" />
+            <Button
+                android:text="Web"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonWeb" />
 
-        <Button
-            android:text="Play Mp3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonMp3" />
+            <Button
+                android:text="Telp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonTelp" />
 
-        <Button
-            android:text="Play Video"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonVideo" />
+            <Button
+                android:text="Kamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonKamera" />
 
-        <Button
-            android:text="Sms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonSms" />
+            <Button
+                android:text="Play Mp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonMp3" />
 
-        <Button
-            android:text="Peta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonPeta" />
+            <Button
+                android:text="Play Video"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonVideo" />
 
-        <Button
-            android:text="Activity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonActivity" />
+            <Button
+                android:text="Sms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonSms" />
 
-        <Button
-            android:text="Medsos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonMedsos" />
+            <Button
+                android:text="Peta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonPeta" />
 
-        <Button
-            android:text="Exit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonExit" />
-    </LinearLayout>
+            <Button
+                android:text="Activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonActivity" />
+
+            <Button
+                android:text="Medsos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonMedsos" />
+
+            <Button
+                android:text="Exit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonExit" />
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
