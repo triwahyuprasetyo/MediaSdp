@@ -1,6 +1,8 @@
 package com.why.mediasdp;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -14,9 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button buttonWeb, buttonTelp, buttonKamera, buttonMp3, buttonVideo, buttonSMS, buttonPeta, buttonActivity, buttonMedsos, buttonExit;
+    private Button buttonWeb, buttonTelp, buttonKamera, buttonMp3, buttonVideo, buttonSMS, buttonPeta, buttonActivity, buttonMedsos, buttonAlertDialog, buttonExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonPeta = (Button) findViewById(R.id.buttonPeta);
         buttonActivity = (Button) findViewById(R.id.buttonActivity);
         buttonMedsos = (Button) findViewById(R.id.buttonMedsos);
+        buttonAlertDialog = (Button) findViewById(R.id.buttonAlertDialog);
         buttonExit = (Button) findViewById(R.id.buttonExit);
 
         buttonWeb.setOnClickListener(this);
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonPeta.setOnClickListener(this);
         buttonActivity.setOnClickListener(this);
         buttonMedsos.setOnClickListener(this);
+        buttonAlertDialog.setOnClickListener(this);
         buttonExit.setOnClickListener(this);
     }
 
@@ -86,10 +91,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == buttonPeta.getId()) {
 
         } else if (view.getId() == buttonActivity.getId()) {
-            Intent intentActivity=new Intent(MainActivity.this,NextActivity.class);
+            Intent intentActivity = new Intent(MainActivity.this, NextActivity.class);
             startActivity(intentActivity);
         } else if (view.getId() == buttonMedsos.getId()) {
-            finish();
+            //finish();
+        } else if (view.getId() == buttonAlertDialog.getId()) {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Delete entry")
+                    .setMessage("Are you sure you want to delete this entry?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                            Toast.makeText(getApplicationContext(),"Positive",Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                            Toast.makeText(getApplicationContext(),"Negative",Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         } else if (view.getId() == buttonExit.getId()) {
             finish();
         }

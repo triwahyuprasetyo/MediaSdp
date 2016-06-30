@@ -88,6 +88,12 @@
                 android:id="@+id/buttonMedsos" />
 
             <Button
+                android:text="Alert Dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonAlertDialog" />
+
+            <Button
                 android:text="Exit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
