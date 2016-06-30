@@ -19,7 +19,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button buttonWeb, buttonTelp, buttonKamera, buttonMp3, buttonVideo, buttonSMS, buttonPeta, buttonActivity, buttonMedsos, buttonAlertDialog, buttonExit;
+    private Button buttonWeb, buttonTelp, buttonKamera, buttonMp3, buttonVideo, buttonSMS,
+            buttonPeta, buttonActivity, buttonAlertDialog, buttonWhatsApp,
+            buttonFacebook, buttonTwitter, buttonExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSMS = (Button) findViewById(R.id.buttonSms);
         buttonPeta = (Button) findViewById(R.id.buttonPeta);
         buttonActivity = (Button) findViewById(R.id.buttonActivity);
-        buttonMedsos = (Button) findViewById(R.id.buttonMedsos);
         buttonAlertDialog = (Button) findViewById(R.id.buttonAlertDialog);
+        buttonWhatsApp = (Button) findViewById(R.id.buttonWhatsApp);
+        buttonFacebook = (Button) findViewById(R.id.buttonFacebook);
+        buttonTwitter = (Button) findViewById(R.id.buttonTwitter);
         buttonExit = (Button) findViewById(R.id.buttonExit);
 
         buttonWeb.setOnClickListener(this);
@@ -56,8 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSMS.setOnClickListener(this);
         buttonPeta.setOnClickListener(this);
         buttonActivity.setOnClickListener(this);
-        buttonMedsos.setOnClickListener(this);
         buttonAlertDialog.setOnClickListener(this);
+        buttonWhatsApp.setOnClickListener(this);
+        buttonFacebook.setOnClickListener(this);
+        buttonTwitter.setOnClickListener(this);
         buttonExit.setOnClickListener(this);
     }
 
@@ -93,9 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == buttonActivity.getId()) {
             Intent intentActivity = new Intent(MainActivity.this, NextActivity.class);
             startActivity(intentActivity);
-        } else if (view.getId() == buttonMedsos.getId()) {
-            //finish();
-        } else if (view.getId() == buttonAlertDialog.getId()) {
+        }  else if (view.getId() == buttonAlertDialog.getId()) {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("Delete entry")
                     .setMessage("Are you sure you want to delete this entry?")
@@ -113,6 +117,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
+        } else if (view.getId() == buttonWhatsApp.getId()) {
+
+        } else if (view.getId() == buttonFacebook.getId()) {
+
+        } else if (view.getId() == buttonTwitter.getId()) {
+
         } else if (view.getId() == buttonExit.getId()) {
             finish();
         }

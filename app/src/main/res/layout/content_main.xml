@@ -82,16 +82,28 @@
                 android:id="@+id/buttonActivity" />
 
             <Button
-                android:text="Medsos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/buttonMedsos" />
-
-            <Button
                 android:text="Alert Dialog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonAlertDialog" />
+
+            <Button
+                android:text="WhatsApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonWhatsApp" />
+
+            <Button
+                android:text="Facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonFacebook" />
+
+            <Button
+                android:text="Twitter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonTwitter" />
 
             <Button
                 android:text="Exit"
