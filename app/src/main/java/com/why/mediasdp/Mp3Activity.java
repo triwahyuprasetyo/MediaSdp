@@ -24,5 +24,8 @@ public class Mp3Activity extends AppCompatActivity {
         tvMp3Title.setText("tv Mp3");
         tvLeft.setText("tv Left");
         tvRight.setText("tv Right");
+
+        seekbarMp3.setMax(1000);
+        seekbarMp3.setProgress(200);
     }
 }

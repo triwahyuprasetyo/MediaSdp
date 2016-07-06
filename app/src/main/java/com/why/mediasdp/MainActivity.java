@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button buttonWeb, buttonTelp, buttonKamera, buttonMp3, buttonVideo, buttonSMS,
             buttonPeta, buttonActivity, buttonAlertDialog, buttonWhatsApp,
@@ -86,10 +88,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intentKamera = new Intent("android.media.action.IMAGE_CAPTURE");
             startActivityForResult(intentKamera, 0);
         } else if (view.getId() == buttonMp3.getId()) {
-            Intent intentMp3 = new Intent(MainActivity.this, Mp3Activity.class);
-            startActivity(intentMp3);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri
+                            .parse("file:///mnt/sdcard/06 Seize The Day.mp3"),
+                    "audio/mpeg3");
+            startActivity(intent);
         } else if (view.getId() == buttonVideo.getId()) {
-
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("file:///mnt/sdcard/The Beatles - Please Please Me..mp4"));
+            intent.setDataAndType(Uri.parse("file:///mnt/sdcard/The Beatles - Please Please Me..mp4"), "video/mp4");
+            startActivity(intent);
         } else if (view.getId() == buttonSMS.getId()) {
             Uri uri = Uri.parse("smsto:08995362814");
             Intent intentSMS = new Intent(Intent.ACTION_SENDTO, uri);
