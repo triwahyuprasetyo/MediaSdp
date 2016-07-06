@@ -103,7 +103,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intentSMS.putExtra("sms body", "Test Intent SMS");
             startActivity(intentSMS);
         } else if (view.getId() == buttonPeta.getId()) {
-
+            double latitude = -7.560876;
+            double longitude = 110.8566297;
+            String label = "Universitas Sebelas Maret";
+            String uriBegin = "geo:" + latitude + "," + longitude;
+            String query = latitude + "," + longitude + "(" + label + ")";
+            String encodedQuery = Uri.encode(query);
+            String uriString = uriBegin + "?q=" + encodedQuery + "&z=16";
+            Uri uri = Uri.parse(uriString);
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         } else if (view.getId() == buttonActivity.getId()) {
             Intent intentActivity = new Intent(MainActivity.this, NextActivity.class);
             startActivity(intentActivity);
