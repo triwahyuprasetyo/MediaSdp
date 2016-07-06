@@ -86,7 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intentKamera = new Intent("android.media.action.IMAGE_CAPTURE");
             startActivityForResult(intentKamera, 0);
         } else if (view.getId() == buttonMp3.getId()) {
-
+            Intent intentMp3 = new Intent(MainActivity.this, Mp3Activity.class);
+            startActivity(intentMp3);
         } else if (view.getId() == buttonVideo.getId()) {
 
         } else if (view.getId() == buttonSMS.getId()) {
@@ -99,20 +100,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == buttonActivity.getId()) {
             Intent intentActivity = new Intent(MainActivity.this, NextActivity.class);
             startActivity(intentActivity);
-        }  else if (view.getId() == buttonAlertDialog.getId()) {
+        } else if (view.getId() == buttonAlertDialog.getId()) {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("Delete entry")
                     .setMessage("Are you sure you want to delete this entry?")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete
-                            Toast.makeText(getApplicationContext(),"Positive",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Positive", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // do nothing
-                            Toast.makeText(getApplicationContext(),"Negative",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Negative", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
