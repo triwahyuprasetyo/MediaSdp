@@ -51,6 +51,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/buttonKamera" />
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/ivThumbnailPhoto" />
+
             <Button
                 android:text="Play Mp3"
                 android:layout_width="match_parent"
