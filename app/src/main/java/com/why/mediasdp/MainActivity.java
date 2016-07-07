@@ -157,24 +157,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         } else if (view.getId() == buttonTwitter.getId()) {
-            Toast.makeText(getApplicationContext(),"twitter",Toast.LENGTH_SHORT).show();
-            /*Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
-            shareIntent.setType("text/plain");
-            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Share google via twitter"+"\nhttp://google.com");
-            PackageManager pm = getApplicationContext().getPackageManager();
-            List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
-            for (final ResolveInfo app : activityList) {
-                if ("com.twitter.android.PostActivity".equals(app.activityInfo.name)) {
-                    final ActivityInfo activity = app.activityInfo;
-                    final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
-                    shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-                    shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-                    shareIntent.setComponent(name);
-                    getApplicationContext().startActivity(shareIntent);
-                    break;
-                }
-            }
-            */
             try
             {
                 // Check if the Twitter app is installed on the phone.
@@ -182,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setClassName("com.twitter.android", "com.twitter.android.composer.ComposerActivity");
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Your text");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hallo World, Posting to Twitter");
                 startActivity(intent);
 
             }
