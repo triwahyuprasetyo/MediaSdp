@@ -138,7 +138,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         } else if (view.getId() == buttonWhatsApp.getId()) {
-
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Haloo ini posting dari intent");
+            sendIntent.setType("text/plain");
+            sendIntent.setPackage("com.whatsapp");
+            startActivity(sendIntent);
         } else if (view.getId() == buttonFacebook.getId()) {
             Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
