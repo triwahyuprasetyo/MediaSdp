@@ -2,9 +2,12 @@ package com.why.mediasdp;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,7 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.io.File;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button buttonWeb, buttonTelp, buttonKamera, buttonMp3, buttonVideo, buttonSMS,
@@ -137,9 +140,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (view.getId() == buttonWhatsApp.getId()) {
 
         } else if (view.getId() == buttonFacebook.getId()) {
-
+            Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Share google via facebook"+"\nhttp://google.com");
+            PackageManager pm = getApplicationContext().getPackageManager();
+            List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
+            for (final ResolveInfo app : activityList) {
+                if ((app.activityInfo.name).contains("facebook")) {
+                    final ActivityInfo activity = app.activityInfo;
+                    final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+                    shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                    shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                    shareIntent.setComponent(name);
+                    getApplicationContext().startActivity(shareIntent);
+                    break;
+                }
+            }
         } else if (view.getId() == buttonTwitter.getId()) {
+            Toast.makeText(getApplicationContext(),"twitter",Toast.LENGTH_SHORT).show();
+            /*Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Share google via twitter"+"\nhttp://google.com");
+            PackageManager pm = getApplicationContext().getPackageManager();
+            List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
+            for (final ResolveInfo app : activityList) {
+                if ("com.twitter.android.PostActivity".equals(app.activityInfo.name)) {
+                    final ActivityInfo activity = app.activityInfo;
+                    final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+                    shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                    shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                    shareIntent.setComponent(name);
+                    getApplicationContext().startActivity(shareIntent);
+                    break;
+                }
+            }
+            */
+            try
+            {
+                // Check if the Twitter app is installed on the phone.
+                getApplicationContext().getPackageManager().getPackageInfo("com.twitter.android", 0);
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setClassName("com.twitter.android", "com.twitter.android.composer.ComposerActivity");
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, "Your text");
+                startActivity(intent);
 
+            }
+            catch (Exception e)
+            {
+                Toast.makeText(getApplicationContext(),"Twitter is not installed on this device",Toast.LENGTH_LONG).show();
+
+            }
         } else if (view.getId() == buttonExit.getId()) {
             finish();
         }
